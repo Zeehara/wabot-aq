@@ -133,7 +133,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       if (!isOwner) return dfail('owner', m, conn)
       setting.anticall = isEnable
       break
-    case 'pconly':
+    case 'pconly': true
     case 'privateonly':
       isAll = true
       if (!isOwner) return dfail('owner', m, conn)
@@ -141,7 +141,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       break
     case 'gconly':
     case 'grouponly':
-    case 'jadibot':
+    case 'jadibot': false
       if (!isOwner) return dfail('owner', m, conn)
       setting.jadibot = isEnable
       break
