@@ -103,8 +103,8 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       chat.viewonce = isEnable
       break
     // Owner
-    case 'public':
-      isAll = true
+    case 'public': false
+      isAll = false
       if (!isOwner) return dfail('owner', m, conn)
       setting.self = !isEnable
       break
@@ -117,7 +117,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       if (!isOwner) return dfail('owner', m, conn)
       conn.callWhitelistMode = isEnable
       break
-    case 'restrict':
+    case 'restrict': false
       isAll = true
       if (!isOwner) return dfail('owner', m, conn)
       setting.restrict = isEnable
